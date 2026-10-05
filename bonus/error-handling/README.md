@@ -1,13 +1,15 @@
-# Exception Handling (Bonus)
+# Bonus: Exception Handling
 
-> Bonus: not covered in the video. A natural follow-up to functions.
+Catching and handling exceptions with `try`, `except`, `else` and `finally`, plus a tour of the built-in exception types.
 
-**Files in this folder**
+> This topic is **not covered in the video**. The files are included so the code is available to anyone who wants to continue after the course.
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 📘 [`theory.ipynb`](theory.ipynb) - theory notebook
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
-- 💻 [`code-types-of-exception.ipynb`](code-types-of-exception.ipynb) - code notebook
-- ✏️ [`exercises.ipynb`](exercises.ipynb) - exercises
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 📘 [`theory.ipynb`](theory.ipynb) | Theory notebook |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+| 💻 [`code-types-of-exception.ipynb`](code-types-of-exception.ipynb) | Code notebook |
+| ✏️ [`exercises.ipynb`](exercises.ipynb) | Exercises |
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+[Back to bonus](../README.md) · [Course home](../../README.md)

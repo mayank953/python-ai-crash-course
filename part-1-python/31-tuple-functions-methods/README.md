@@ -1,14 +1,23 @@
 # 31. Tuple Functions & Methods
 
-**Video chapters**
+The few tuple methods, and handy tricks such as swapping values.
 
-- `6:48:42` Tuples
+**Watch**
 
-> Covered inside the single 'Tuples' chapter (6:48:42 - 7:18:01).
+- [`6:48:42`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=24522s) Tuples
 
-**Files in this folder**
+**Files**
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+**Try it yourself**
+
+1. Use `count()` and `index()` on a tuple.
+2. Join two tuples into one.
+3. Swap two variables in one line using tuple unpacking.
+
+---
+[← 30 Tuples](../30-tuples/) · [Course home](../../README.md) · [32 Sets →](../32-sets/)

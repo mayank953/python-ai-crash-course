@@ -1,11 +1,22 @@
 # 23. The for Loop
 
-**Video chapters**
+Looping over the items of a string or list with `for`.
 
-- `4:48:36` for Loop
+**Watch**
 
-**Files in this folder**
+- [`4:48:36`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=17316s) for Loop
 
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Count the vowels in a word by looping over its characters.
+2. Print every item of a list on its own line.
+3. Add up a list of numbers with a `for` loop instead of `sum()`.
+
+---
+[← 22 break, continue & pass](../22-break-continue-pass/) · [Course home](../../README.md) · [24 The range() Function →](../24-range-function/)

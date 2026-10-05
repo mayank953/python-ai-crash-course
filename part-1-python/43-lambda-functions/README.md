@@ -1,13 +1,24 @@
 # 43. Lambda Functions
 
-**Video chapters**
+Short anonymous functions with `lambda`, and when not to use them.
 
-- `10:22:04` Lambda Functions
+**Watch**
 
-**Files in this folder**
+- [`10:22:04`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=37324s) Lambda Functions
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 📘 [`theory.ipynb`](theory.ipynb) - theory notebook
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 📘 [`theory.ipynb`](theory.ipynb) | Theory notebook |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Write a lambda that squares a number.
+2. Write a lambda that takes two arguments and returns the larger one.
+3. Sort a list of `(name, age)` tuples by age using a lambda as the key.
+
+---
+[← 42 Functions as First-Class Citizens](../42-first-class-functions/) · [Course home](../../README.md) · [44 map(), filter() & reduce() →](../44-map-filter-reduce/)

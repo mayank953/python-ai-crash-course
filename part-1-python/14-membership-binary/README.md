@@ -1,11 +1,22 @@
 # 14. Membership & Binary (Bitwise) Operators
 
-> Supplementary: this class has no chapter of its own in the video's chapter list.
+Checking membership with `in`, and working with bits using `&`, `|`, `^`, `~`, `<<` and `>>`.
 
-**Files in this folder**
+> 📺 Extra material: this class has no chapter of its own in the video.
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 📘 [`theory.ipynb`](theory.ipynb) - theory notebook
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 📘 [`theory.ipynb`](theory.ipynb) | Theory notebook |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Use `in` and `not in` on a string, a list and a dictionary's keys.
+2. Compute `10 & 6`, `10 | 6` and `10 ^ 6`, and confirm each with `bin()`.
+3. Use a left shift to compute `1 << 5` and explain it as multiplication.
+
+---
+[← 13 Logical, Assignment & Identity Operators](../13-logical-assignment-identity/) · [Course home](../../README.md) · [15 Operator Precedence & Associativity →](../15-precedence-associativity/)

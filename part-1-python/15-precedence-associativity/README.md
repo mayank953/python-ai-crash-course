@@ -1,12 +1,23 @@
 # 15. Operator Precedence & Associativity
 
-**Video chapters**
+Which operator runs first, and how Python breaks ties when precedence is equal.
 
-- `3:06:08` Operator Precedence & Associativity
+**Watch**
 
-**Files in this folder**
+- [`3:06:08`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=11168s) Operator Precedence & Associativity
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Predict `2 + 3 * 4 ** 2 / 8 - 1` before running it, then add brackets to change the result.
+2. Work out `2 ** 3 ** 2` by hand and explain right-to-left associativity.
+3. Predict what `not True == False` evaluates to.
+
+---
+[← 14 Membership & Binary (Bitwise) Operators](../14-membership-binary/) · [Course home](../../README.md) · [16 String Formatting & f-Strings →](../16-string-formatting/)

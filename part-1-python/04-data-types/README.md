@@ -1,13 +1,24 @@
 # 04. Data Types
 
-**Video chapters**
+How Python classifies data, why variables can change type, and why integers have no fixed size.
 
-- `51:57` Data Types & Integers
+**Watch**
 
-**Files in this folder**
+- [`51:57`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=3117s) Data Types & Integers
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 📘 [`theory.ipynb`](theory.ipynb) - theory notebook
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 📘 [`theory.ipynb`](theory.ipynb) | Theory notebook |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Run `type()` on five different values and list the types you see.
+2. Re-assign one variable to a value of another type and print `type()` after each step.
+3. Compute `2 ** 200` and confirm it is still an `int`.
+
+---
+[← 03 Built-in Functions, print(), Modules, Errors & Identifiers](../03-print-input-modules/) · [Course home](../../README.md) · [05 Numeric Types: int, float, complex →](../05-numeric-data-types/)

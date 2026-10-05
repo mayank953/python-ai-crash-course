@@ -1,13 +1,24 @@
 # 07. Strings Basics
 
-**Video chapters**
+Creating strings with different quotes, escape sequences, and why strings cannot be edited in place.
 
-- `1:12:28` Strings Basics
+**Watch**
 
-**Files in this folder**
+- [`1:12:28`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=4348s) Strings Basics
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 📘 [`theory.ipynb`](theory.ipynb) - theory notebook
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 📘 [`theory.ipynb`](theory.ipynb) | Theory notebook |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Create one multi-line string with triple quotes and print it.
+2. Try `s = "cat"; s[0] = "b"` and read the error message carefully.
+3. Print a Windows-style path containing backslashes and a tab character.
+
+---
+[← 06 Boolean Data Type](../06-boolean/) · [Course home](../../README.md) · [08 String Indexing (Positive & Negative) →](../08-indexing/)

@@ -1,13 +1,24 @@
 # 20. Conditionals: Practice Questions
 
-**Video chapters**
+Practice: solving typical decision-making problems end to end.
 
-- `4:04:18` Conditionals: Practice Questions
+**Watch**
 
-**Files in this folder**
+- [`4:04:18`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=14658s) Conditionals: Practice Questions
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- ✏️ [`exercises-questions.ipynb`](exercises-questions.ipynb) - exercises
-- ✏️ [`exercises-assignment.ipynb`](exercises-assignment.ipynb) - exercises
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| ✏️ [`exercises-questions.ipynb`](exercises-questions.ipynb) | Exercises |
+| ✏️ [`exercises-assignment.ipynb`](exercises-assignment.ipynb) | Exercises |
+
+**Try it yourself**
+
+1. Decide whether a year is a leap year.
+2. Find the largest of three numbers without using `max()`.
+3. Build a tiny calculator that picks `+`, `-`, `*` or `/` with `if/elif`.
+
+---
+[← 19 Nested if Statements](../19-nested-if/) · [Course home](../../README.md) · [21 Introduction to Loops & the while Loop →](../21-while-loop/)

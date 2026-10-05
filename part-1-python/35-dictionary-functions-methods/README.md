@@ -1,12 +1,23 @@
 # 35. Dictionary Operations & Methods
 
-**Video chapters**
+Everyday dictionary methods and patterns such as counting and merging.
 
-- `8:02:44` Dictionary Operations & Methods
+**Watch**
 
-**Files in this folder**
+- [`8:02:44`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=28964s) Dictionary Operations & Methods
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Count how often each letter occurs in a word using a dictionary.
+2. Merge two dictionaries with `update()` and with `|`.
+3. Use `.get(key, default)` and `.pop()` and describe what each returns.
+
+---
+[← 34 Dictionaries](../34-dictionaries/) · [Course home](../../README.md) · [36 Strings Revisited: ord(), chr() & String Methods →](../36-string-methods/)

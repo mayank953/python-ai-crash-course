@@ -1,16 +1,27 @@
 # 37. Introduction to Functions
 
-**Video chapters**
+What a function is, why we write them, and how to call one.
 
-- `8:41:36` Defining Your Own Function
-- `8:48:01` Return vs Void Functions
-- `8:59:32` Functions: Core Concepts
+**Watch**
 
-> Lessons 37 and 38 together span chapters 8:41:36 - 9:10:11.
+- [`8:41:36`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=31296s) Defining Your Own Function
+- [`8:48:01`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=31681s) Return vs Void Functions
+- [`8:59:32`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=32372s) Functions: Core Concepts
 
-**Files in this folder**
+> Lessons 37 and 38 together span the chapters from `8:41:36` to `9:10:11`.
 
-- 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) - whiteboard notes (PDF)
-- 💻 [`code.ipynb`](code.ipynb) - code notebook
+**Files**
 
-**Suggested order:** watch the video chapter, skim the whiteboard notes, read the theory notebook, then run the code notebook yourself and change the examples.
+| File | What it is |
+|---|---|
+| 📄 [`whiteboard-notes.pdf`](whiteboard-notes.pdf) | Whiteboard notes (PDF) |
+| 💻 [`code.ipynb`](code.ipynb) | Code notebook |
+
+**Try it yourself**
+
+1. Write `greet(name)` that prints a greeting and call it twice.
+2. Call a function that has no `return` and print its result. What do you get?
+3. Write a function that returns the area of a rectangle.
+
+---
+[← 36 Strings Revisited: ord(), chr() & String Methods](../36-string-methods/) · [Course home](../../README.md) · [38 Defining Your Own Functions →](../38-defining-functions/)
