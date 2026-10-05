@@ -1,4 +1,4 @@
-"""Part 2 (AI concepts) content: 21 terms in 5 stages.
+"""AI concepts content: 21 terms in 5 stages.
 
 Structure and card art come from "AI-Terms-Explained.pdf" (The Complete AI
 Vocabulary, 21 terms). Timestamps come from the video chapter list.
@@ -257,7 +257,7 @@ COVER_CARDS = [("01", "cover.jpg", "The Complete AI Vocabulary: 21 terms"),
 
 
 # ---------------------------------------------------------------------------
-# Hands-on activity per term (shown under each term in part-2-ai/README.md)
+# Hands-on activity per term (shown under each term in ai-concepts/README.md)
 ACTIVITIES = {
     "llm": "Start a new chat and type \"Thank you for\". Ask the model to continue it five times. Note how often you get the same ending, then think about why.",
     "prompting": "Ask a chatbot to sort five made-up emails by urgency using only an instruction. Then add two worked examples to the same prompt and compare how consistent the answers are.",

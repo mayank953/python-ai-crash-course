@@ -1,8 +1,8 @@
-# Part 1: Python
+# Python: Complete All Resources
 
-44 lessons in video order. Each lesson folder holds the whiteboard PDF, a theory notebook, a code notebook and sometimes exercises, plus a README with the video timestamps and three small tasks.
+46 lessons in order. Each lesson folder holds the whiteboard PDF, a theory notebook, a code notebook and sometimes exercises, plus a README with the video timestamps and three small tasks.
 
-Legend: 📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · *extra* = additional practice lesson
+Legend: 📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises
 
 ### Setup & Basics
 
@@ -31,7 +31,7 @@ Legend: 📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code noteboo
 | 11 | [Operators Overview & Arithmetic Operators](11-arithmetic-operators/) | The family of operators, and the seven arithmetic ones including floor division, modulus and power. | [`2:15:50`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=8150s) | [📄](11-arithmetic-operators/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](11-arithmetic-operators/theory.ipynb "Theory notebook") [💻](11-arithmetic-operators/code.ipynb "Code notebook") |
 | 12 | [Relational Operators](12-relational-operators/) | Comparing numbers and strings with `==`, `!=`, `<`, `>`, `<=` and `>=`. | [`2:26:08`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=8768s) | [📄](12-relational-operators/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](12-relational-operators/theory.ipynb "Theory notebook") [💻](12-relational-operators/code.ipynb "Code notebook") |
 | 13 | [Logical, Assignment & Identity Operators](13-logical-assignment-identity/) | Combining conditions with `and`, `or`, `not`, updating variables with `+=` and friends, and `is` versus `==`. | [`2:43:46`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=9826s) | [📄](13-logical-assignment-identity/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](13-logical-assignment-identity/theory.ipynb "Theory notebook") [💻](13-logical-assignment-identity/code.ipynb "Code notebook") |
-| 14 | [Membership & Binary (Bitwise) Operators](14-membership-binary/) | Checking membership with `in`, and working with bits using `&`, `|`, `^`, `~`, `<<` and `>>`. | extra | [📄](14-membership-binary/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](14-membership-binary/theory.ipynb "Theory notebook") [💻](14-membership-binary/code.ipynb "Code notebook") |
+| 14 | [Membership & Binary (Bitwise) Operators](14-membership-binary/) | Checking membership with `in`, and working with bits using `&`, `|`, `^`, `~`, `<<` and `>>`. | — | [📄](14-membership-binary/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](14-membership-binary/theory.ipynb "Theory notebook") [💻](14-membership-binary/code.ipynb "Code notebook") |
 | 15 | [Operator Precedence & Associativity](15-precedence-associativity/) | Which operator runs first, and how Python breaks ties when precedence is equal. | [`3:06:08`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=11168s) | [📄](15-precedence-associativity/whiteboard-notes.pdf "Whiteboard notes (PDF)") [💻](15-precedence-associativity/code.ipynb "Code notebook") |
 | 16 | [String Formatting & f-Strings](16-string-formatting/) | Building readable output with `%`, `.format()` and f-strings, including alignment and number formatting. | [`3:13:46`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=11626s) | [📄](16-string-formatting/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](16-string-formatting/theory.ipynb "Theory notebook") [💻](16-string-formatting/code.ipynb "Code notebook") |
 
@@ -77,6 +77,13 @@ Legend: 📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code noteboo
 | 42 | [Functions as First-Class Citizens](42-first-class-functions/) | Functions are values: store them, pass them around and return them. | [`9:56:08`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=35768s) | [📄](42-first-class-functions/whiteboard-notes.pdf "Whiteboard notes (PDF)") [💻](42-first-class-functions/code.ipynb "Code notebook") |
 | 43 | [Lambda Functions](43-lambda-functions/) | Short anonymous functions with `lambda`, and when not to use them. | [`10:22:04`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=37324s) | [📄](43-lambda-functions/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](43-lambda-functions/theory.ipynb "Theory notebook") [💻](43-lambda-functions/code.ipynb "Code notebook") |
 | 44 | [map(), filter() & reduce()](44-map-filter-reduce/) | Transforming, filtering and combining sequences with `map()`, `filter()` and `reduce()`. | [`10:32:38`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=37958s) | [📄](44-map-filter-reduce/whiteboard-notes.pdf "Whiteboard notes (PDF)") [💻](44-map-filter-reduce/code.ipynb "Code notebook") |
+
+### Error Handling & OOP
+
+| # | Lesson | What you learn | Video | Files |
+|---|--------|---------------|-------|-------|
+| 45 | [Exception Handling](45-exception-handling/) | Catching and handling errors with `try`, `except`, `else` and `finally`, and a tour of the built-in exception types. | — | [📄](45-exception-handling/whiteboard-notes.pdf "Whiteboard notes (PDF)") [📘](45-exception-handling/theory.ipynb "Theory notebook") [💻](45-exception-handling/code.ipynb "Code notebook") [💻](45-exception-handling/code-types-of-exception.ipynb "Code notebook") [✏️](45-exception-handling/exercises.ipynb "Exercises") |
+| 46 | [Object-Oriented Programming](46-object-oriented-programming/) | Classes and objects, encapsulation, abstraction, inheritance, polymorphism and operator overloading, with practice programs. | — | [📄](46-object-oriented-programming/whiteboard-notes.pdf "Whiteboard notes (PDF)") [💻](46-object-oriented-programming/01-classes-and-objects.ipynb "Code notebook") [💻](46-object-oriented-programming/02-encapsulation.ipynb "Code notebook") [💻](46-object-oriented-programming/03-abstraction.ipynb "Code notebook") [💻](46-object-oriented-programming/04-inheritance.ipynb "Code notebook") [📘](46-object-oriented-programming/05-types-of-inheritance-theory.ipynb "Theory notebook") [💻](46-object-oriented-programming/05-types-of-inheritance.ipynb "Code notebook") [💻](46-object-oriented-programming/06-polymorphism-operator-overloading.ipynb "Code notebook") [✏️](46-object-oriented-programming/exercise-complex-number-class.ipynb "Exercises") [✏️](46-object-oriented-programming/exercise-inheritance.ipynb "Exercises") |
 
 ### Checkpoint assignments
 

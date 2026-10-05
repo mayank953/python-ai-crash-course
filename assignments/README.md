@@ -1,6 +1,6 @@
 # Checkpoint assignments
 
-One assignment at the end of each section of Part 1. Each problem gives you a blank to fill, a check cell that tells you whether you got it right, and a reference solution.
+One assignment at the end of each section of the Python lessons. Each problem gives you a blank to fill, a check cell that tells you whether you got it right, and a reference solution.
 
 | Checkpoint | After lessons | Problems | Starter | Solutions |
 |---|---|---|---|---|

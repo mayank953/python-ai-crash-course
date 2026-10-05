@@ -182,9 +182,12 @@ LESSONS = {
            ["Use `map()` to convert a list of numeric strings to integers.",
             "Use `filter()` to keep only the even numbers.",
             "Use `reduce()` from `functools` to multiply the numbers 1 to 5."]),
-}
-
-BONUS = {
-    "error-handling": "Catching and handling exceptions with `try`, `except`, `else` and `finally`, plus a tour of the built-in exception types.",
-    "oop": "Classes and objects, encapsulation, abstraction, inheritance, polymorphism and operator overloading, with practice programs.",
+    "45": ("Catching and handling errors with `try`, `except`, `else` and `finally`, and a tour of the built-in exception types.",
+           ["Catch a `ZeroDivisionError` and print a friendly message instead of crashing.",
+            "Ask for a number with `input()` and keep asking until `int()` stops raising `ValueError`.",
+            "Raise your own `ValueError` when an age is negative, and catch it elsewhere."]),
+    "46": ("Classes and objects, encapsulation, abstraction, inheritance, polymorphism and operator overloading, with practice programs.",
+           ["Write a `Student` class with `__init__` and a method that prints a summary.",
+            "Make one attribute private and give it a getter and a setter.",
+            "Create `Animal` and `Dog`, override `speak()` in `Dog`, and call it on both."]),
 }

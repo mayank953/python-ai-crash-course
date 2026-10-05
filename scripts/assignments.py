@@ -1,4 +1,4 @@
-"""Checkpoint assignments, one per section of Part 1.
+"""Checkpoint assignments, one per section of the Python lessons.
 
 Each problem has:
   prompt   markdown shown to the learner

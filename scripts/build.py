@@ -37,9 +37,10 @@ VIDEO_ID = "J9BI0jGOds8"
 VIDEO_URL = f"https://www.youtube.com/watch?v={VIDEO_ID}"
 REPO_URL = "https://github.com/mayank953/python-ai-crash-course"
 MAX_OUTPUT_CHARS = 20_000
-GENERATED = ["part-1-python", "part-2-ai", "bonus", "assignments", "README.md", "INDEX.md",
-             "LICENSE", "CONTRIBUTING.md", ".gitignore", "requirements.txt"]
-SECTION_ORDER = [cur.SEC_SETUP, cur.SEC_TYPES, cur.SEC_OPS, cur.SEC_FLOW, cur.SEC_DS, cur.SEC_FUNC]
+GENERATED = ["python", "ai-concepts", "roadmap", "assignments", "README.md", "INDEX.md",
+             "LICENSE", "CONTRIBUTING.md", ".gitignore", "requirements.txt",
+             "part-1-python", "part-2-ai", "bonus"]   # last three: old layout, cleaned if present
+SECTION_ORDER = [cur.SEC_SETUP, cur.SEC_TYPES, cur.SEC_OPS, cur.SEC_FLOW, cur.SEC_DS, cur.SEC_FUNC, cur.SEC_MORE]
 ICON = {cur.PDF: "📄", cur.THEORY: "📘", cur.CODE: "💻", cur.EXERCISE: "✏️", cur.SCRIPT: "🐍"}
 LABEL = {cur.PDF: "Whiteboard notes (PDF)", cur.THEORY: "Theory notebook",
          cur.CODE: "Code notebook", cur.EXERCISE: "Exercises", cur.SCRIPT: "Practice script"}
@@ -65,7 +66,7 @@ def gh_slug(title):
 
 
 def folder_of(lesson):
-    return f"part-1-python/{lesson.folder}" if lesson.num[0].isdigit() else f"bonus/{lesson.folder}"
+    return f"python/{lesson.folder}"
 
 
 def parse_chapters(path):
@@ -108,10 +109,10 @@ def header_cell(lesson):
         links = " · ".join(f"{vid(t)} {name}" for t, name in lesson.chapters)
         first = f"> 📺 **Watch:** {links}"
     else:
-        first = "> 📚 **Extra practice** to go with this course."
+        first = ""
     heading = f"{lesson.num}. {lesson.title}" if lesson.num[0].isdigit() else lesson.title
     second = f"> 📂 **{heading}** · [lesson page](README.md) · [course home](../../README.md)"
-    return v4.new_markdown_cell(first + "\n" + second)
+    return v4.new_markdown_cell("\n".join(x for x in (first, second) if x))
 
 
 def copy_notebook(src, dst, lesson, notes):
@@ -149,7 +150,7 @@ def copy_lesson(lesson, src_root, repo, notes):
 
 # ------------------------------------------------------------------ tables
 def lesson_row(lesson, base, blurb):
-    video = vid(lesson.chapters[0][0]) if lesson.chapters else "extra"
+    video = vid(lesson.chapters[0][0]) if lesson.chapters else "—"
     links = " ".join(f"[{ICON[k]}]({base}{lesson.folder}/{n} \"{LABEL[k]}\")"
                      for _r, n, k in lesson.files if k != cur.SCRIPT)
     cells = [lesson.num, f"[{lesson.title}]({base}{lesson.folder}/)", video, links]
@@ -169,30 +170,29 @@ def lesson_tables(base, blurb=False):
     return "\n".join(out)
 
 
-ICON_LEGEND = ("📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · "
-               "*extra* = additional practice lesson")
+ICON_LEGEND = "📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises"
 
-PARTS_OVERVIEW = """| Part | Topic | Video range |
-|------|-------|-------------|
-| 1 | Python setup & basics | 0:00 to 51:57 |
-| 2 | Data types, strings & type casting | 51:57 to 2:15:50 |
-| 3 | Operators & string formatting | 2:15:50 to 3:28:43 |
-| 4 | Conditionals & loops | 3:28:43 to 5:33:56 |
-| 5 | Data structures | 5:33:56 to 8:41:36 |
-| 6 | Functions & functional programming | 8:41:36 to 10:47:48 |
-| 7 | AI concepts explained (21 terms) | 10:47:48 to 13:01:38 |"""
+PARTS_OVERVIEW = """| Topic | Video range |
+|-------|-------------|
+| Python setup & basics | 0:00 to 51:57 |
+| Data types, strings & type casting | 51:57 to 2:15:50 |
+| Operators & string formatting | 2:15:50 to 3:28:43 |
+| Conditionals & loops | 3:28:43 to 5:33:56 |
+| Data structures | 5:33:56 to 8:41:36 |
+| Functions & functional programming | 8:41:36 to 10:47:48 |
+| AI concepts explained (21 terms) | 10:47:48 to 13:01:38 |"""
 
 
 def chapter_overview(chapters):
     where = {}
     for l in cur.PART1:
         for t, _ in l.chapters:
-            where.setdefault(t, []).append(f"[Lesson {l.num}](part-1-python/{l.folder}/)")
+            where.setdefault(t, []).append(f"[Lesson {l.num}](python/{l.folder}/)")
     for t in ai.TERMS:
-        where.setdefault(t.ts, []).append(f"[{t.title}](part-2-ai/README.md#{gh_slug(t.title)})")
-    where.setdefault(ai.INTRO_TS[0], []).append("[Part 2 overview](part-2-ai/README.md)")
-    where.setdefault(ai.RECAP.ts, []).append(f"[Recap](part-2-ai/README.md#{gh_slug(ai.RECAP.title)})")
-    where.setdefault(ai.FINAL_TS[0], []).append("[Final thoughts](part-2-ai/README.md#final-thoughts)")
+        where.setdefault(t.ts, []).append(f"[{t.title}](ai-concepts/README.md#{gh_slug(t.title)})")
+    where.setdefault(ai.INTRO_TS[0], []).append("[AI concepts overview](ai-concepts/README.md)")
+    where.setdefault(ai.RECAP.ts, []).append(f"[Recap](ai-concepts/README.md#{gh_slug(ai.RECAP.title)})")
+    where.setdefault(ai.FINAL_TS[0], []).append("[Final thoughts](ai-concepts/README.md#final-thoughts)")
     rows, missing = ["| Time | Chapter | In this repo |", "|------|---------|--------------|"], []
     for ts, title in chapters:
         if ts not in where:
@@ -219,15 +219,13 @@ def resource_rows():
     return "\n".join(rows)
 
 
-# ------------------------------------------------------------------ lesson / bonus pages
+# ------------------------------------------------------------------ lesson pages
 def lesson_page(lesson, prev_l, next_l):
     L = [f"# {lesson.num}. {lesson.title}", ""]
     blurb, tasks = practice.LESSONS[lesson.num]
     L += [blurb, ""]
     if lesson.chapters:
         L += ["**Watch**", ""] + [f"- {vid(t)} {name}" for t, name in lesson.chapters] + [""]
-    else:
-        L += ["> 📚 **Extra practice lesson** to go with this part of the course.", ""]
     if lesson.num in ("37", "38"):
         L += ["> Lessons 37 and 38 together span the chapters from `8:41:36` to `9:10:11`.", ""]
     L += ["**Files**", "", "| File | What it is |", "|---|---|"]
@@ -247,26 +245,10 @@ def lesson_page(lesson, prev_l, next_l):
     return "\n".join(L + ["---", " · ".join(nav), ""])
 
 
-def bonus_lesson_page(lesson):
-    L = [f"# Bonus: {lesson.title}", "", practice.BONUS[lesson.folder], "",
-         "> A bonus topic for when you are ready to go further. Notes, code and practice are all here.", "", "| File | What it is |", "|---|---|"]
-    L += [f"| {ICON[k]} [`{n}`]({n}) | {LABEL[k]} |" for _r, n, k in lesson.files]
-    return "\n".join(L + ["", "[Back to bonus](../README.md) · [Course home](../../README.md)", ""])
-
-
-def bonus_readme():
-    prereq = {"error-handling": "Lessons 17 to 25 (conditionals and loops)", "oop": "Lessons 37 to 44 (functions)"}
-    L = ["# Bonus material", "",
-         "Two extra topics to explore after the main lessons, each with notes, code and practice programs.", "",
-         "| Topic | Do first | What's inside |", "|---|---|---|"]
-    L += [f"| [{l.title}]({l.folder}/) | {prereq[l.folder]} | {practice.BONUS[l.folder]} |" for l in cur.BONUS_LESSONS]
-    return "\n".join(L + ["", "[Course home](../README.md)", ""])
-
-
 def part1_readme():
     return "\n".join([
-        "# Part 1: Python", "",
-        "44 lessons in video order. Each lesson folder holds the whiteboard PDF, a theory notebook, "
+        "# Python: Complete All Resources", "",
+        "46 lessons in order. Each lesson folder holds the whiteboard PDF, a theory notebook, "
         "a code notebook and sometimes exercises, plus a README with the video timestamps and three small tasks.", "",
         f"Legend: {ICON_LEGEND}", "", lesson_tables("", blurb=True),
         "### Checkpoint assignments", "", assignment_rows("../assignments/"), "", "[Course home](../README.md)", ""])
@@ -311,7 +293,7 @@ def term_block(t, names):
 
 
 def ai_readme(names):
-    L = ["# Part 2: AI Concepts Explained", "",
+    L = ["# AI Concepts Explained", "",
          f"Video: {vid(ai.INTRO_TS[0])} to `13:01:38`. **21 terms in 5 stages**, from the chat window you already use "
          "to what comes next.", "", f"![{ai.COVER_CARDS[0][2]}](images/{names['01']})", "",
          "There is no code in this part. The goal is a working vocabulary, so that when someone says "
@@ -411,7 +393,7 @@ def build_assignments(repo):
             finalize_nb(nb, f"{a['id']}:{solved}")
             nbformat.write(nb, (s_dir if solved else a_dir) / f"{a['id']}.ipynb")
     (a_dir / "README.md").write_text(
-        "# Checkpoint assignments\n\nOne assignment at the end of each section of Part 1. Each problem gives you a blank "
+        "# Checkpoint assignments\n\nOne assignment at the end of each section of the Python lessons. Each problem gives you a blank "
         "to fill, a check cell that tells you whether you got it right, and a reference solution.\n\n"
         + assignment_rows("") + "\n\n**How to use:** finish the lessons in the section, open the assignment notebook, "
         "solve the problems in order, and only then look at the solutions.\n\n[Course home](../README.md)\n",
@@ -422,8 +404,8 @@ def build_assignments(repo):
 def index_page():
     L = ["# Complete index", "", "Every file in the repository and every external link, in one place.", "",
          "## Lessons and files", "", "| Lesson | File | Type | Video |", "|---|---|---|---|"]
-    for l in cur.PART1 + cur.BONUS_LESSONS:
-        video = vid(l.chapters[0][0]) if l.chapters else "extra"
+    for l in cur.PART1:
+        video = vid(l.chapters[0][0]) if l.chapters else "—"
         for _r, name, kind in l.files:
             L.append(f"| {l.num} {l.title} | [{name}]({folder_of(l)}/{name}) | {ICON[kind]} {LABEL[kind]} | {video} |")
     L += ["", "## Assignments", "", "| Notebook | Type |", "|---|---|"]
@@ -431,9 +413,9 @@ def index_page():
         L.append(f"| [{a['id']}](assignments/{a['id']}.ipynb) | ✏️ Assignment |")
         L.append(f"| [{a['id']} (solutions)](assignments/solutions/{a['id']}.ipynb) | ✅ Solutions |")
     L += ["", "## AI section", "", "| File | What it is |", "|---|---|",
-          "| [part-2-ai/README.md](part-2-ai/README.md) | 21 terms, activities, resource guide, quiz |",
-          "| [part-2-ai/ai-terms-explained.pdf](part-2-ai/ai-terms-explained.pdf) | The full diagram from the video |",
-          "| [part-2-ai/images/](part-2-ai/images/) | One card image per term |", "",
+          "| [ai-concepts/README.md](ai-concepts/README.md) | 21 terms, activities, resource guide, quiz |",
+          "| [ai-concepts/ai-terms-explained.pdf](ai-concepts/ai-terms-explained.pdf) | The full diagram from the video |",
+          "| [ai-concepts/images/](ai-concepts/images/) | One card image per term |", "",
           "## External resources", "", resource_rows(), "",
           "## Video", "", f"- [Full course on YouTube]({VIDEO_URL})", "", "[Course home](README.md)", ""]
     return "\n".join(L)
@@ -443,7 +425,7 @@ def stage_table():
     rows = ["| Stage | Terms |", "|---|---|"]
     for s, (title, _b) in ai.STAGES.items():
         terms = [t for t in ai.TERMS if t.stage == s] + ([ai.RECAP] if s == 5 else [])
-        names = ", ".join(f"[{t.title}](part-2-ai/README.md#{gh_slug(t.title)})" for t in terms)
+        names = ", ".join(f"[{t.title}](ai-concepts/README.md#{gh_slug(t.title)})" for t in terms)
         rows.append(f"| {s}. {title} | {names} |")
     return "\n".join(rows)
 
@@ -459,24 +441,27 @@ def main_readme(chapters, n_files, n_pdf):
 **Learn Python from zero, then understand the AI vocabulary behind tools like ChatGPT and Claude.**
 This repository holds every note, notebook and practice file for the 13-hour course.
 
+> 🧭 **New to AI? [Follow the roadmap](roadmap/README.md)** for the best order to learn Python and AI from scratch.
+
 [![Course video]({thumb})]({VIDEO_URL})
 
 ## Contents
 
+- [AI roadmap for beginners](roadmap/README.md)
 - [What you will learn](#what-you-will-learn)
 - [Start here](#start-here)
 - [How each lesson works](#how-each-lesson-works)
-- [Course roadmap](#course-roadmap) · [Chapter overview](#chapter-overview)
-- [Part 1: Python lessons](#part-1-python-lessons) · [Checkpoint assignments](#checkpoint-assignments)
-- [Part 2: AI concepts](#part-2-ai-concepts) · [Resources explained](#resources-explained)
-- [Bonus](#bonus-error-handling-and-oop) · [Repository layout](#repository-layout) · [FAQ](#faq)
+- [Course outline](#course-outline) · [Chapter overview](#chapter-overview)
+- [Python: Complete All Resources](#python-complete-all-resources) · [Checkpoint assignments](#checkpoint-assignments)
+- [AI Concepts](#ai-concepts) · [Resources explained](#resources-explained)
+- [Repository layout](#repository-layout) · [FAQ](#faq)
 
 ## What you will learn
 
-**Python (Parts 1 to 6):** install Python and Jupyter, variables and data types, strings and slicing, operators,
-if/else decisions, loops, lists, tuples, sets and dictionaries, and functions up to `lambda`, `map`, `filter` and `reduce`.
+**Python:** install Python and Jupyter, variables and data types, strings and slicing, operators,
+if/else decisions, loops, lists, tuples, sets and dictionaries, functions up to `lambda`, `map`, `filter` and `reduce`, plus exception handling and object-oriented programming.
 
-**AI (Part 7):** 21 core terms in 5 stages, from *LLM*, *prompting* and *temperature* through *tokens*, *attention* and
+**AI concepts:** 21 core terms in 5 stages, from *LLM*, *prompting* and *temperature* through *tokens*, *attention* and
 *transformers*, to *RAG*, *MCP*, *agents* and *reasoning models*.
 
 **Who it is for:** complete beginners. You need a computer and curiosity, nothing else.
@@ -486,6 +471,7 @@ if/else decisions, loops, lists, tuples, sets and dictionaries, and functions up
 1. **Watch** the [course on YouTube]({VIDEO_URL}). Use the chapter links below to jump to a topic.
 2. **Get the files:** click *Code*, then *Download ZIP* (or use `git clone`).
 3. **Set up** Python and Jupyter (below), then open the lesson folder that matches the chapter.
+4. **Not sure where to begin?** Follow the [roadmap](roadmap/README.md).
 
 ### Set up in five minutes
 
@@ -506,7 +492,7 @@ The notebooks only use the Python standard library.
 
 ## How each lesson works
 
-Every lesson folder in [`part-1-python/`](part-1-python/) follows the same pattern:
+Every lesson folder in [`python/`](python/) follows the same pattern:
 
 | Step | File | What to do |
 |---|---|---|
@@ -520,7 +506,7 @@ Every lesson folder in [`part-1-python/`](part-1-python/) follows the same patte
 
 Each notebook starts with a banner linking to its video chapter, so the reference is always one click away.
 
-## Course roadmap
+## Course outline
 
 {PARTS_OVERVIEW}
 
@@ -535,42 +521,37 @@ All {len(chapters)} chapters of the video, with the place in this repository tha
 
 </details>
 
-## Part 1: Python lessons
+## Python: Complete All Resources
 
 {ICON_LEGEND}
 
 Hover over an icon to see what it is. Each lesson title opens its own page with timestamps and tasks.
 
-{lesson_tables("part-1-python/")}
+{lesson_tables("python/")}
 ### Checkpoint assignments
 
 Test yourself at the end of every section. Each problem has a check cell that tells you instantly whether you got it right.
 
 {assignment_rows("assignments/")}
 
-## Part 2: AI concepts
+## AI Concepts
 
 The second half of the course explains **21 AI terms in 5 stages**. There is no code; the goal is to understand the language
-of AI. Everything lives in [`part-2-ai/`](part-2-ai/README.md): one card per term from the course diagram, a short
-explanation, a hands-on activity, a quiz, and the full diagram as a [PDF](part-2-ai/ai-terms-explained.pdf).
+of AI. Everything lives in [`ai-concepts/`](ai-concepts/README.md): one card per term from the course diagram, a short
+explanation, a hands-on activity, a quiz, and the full diagram as a [PDF](ai-concepts/ai-terms-explained.pdf).
 
-![The Complete AI Vocabulary map](part-2-ai/images/vocabulary-map.jpg)
+![The Complete AI Vocabulary map](ai-concepts/images/vocabulary-map.jpg)
 
 {stage_table()}
 
 ### Resources explained
 
 The video uses a handful of tools and articles. Here is what each one is and when to use it
-(step-by-step guides are in the [AI section](part-2-ai/README.md#resources-explained)).
+(step-by-step guides are in the [AI section](ai-concepts/README.md#resources-explained)).
 
 {resource_rows()}
 
 > Some of these sites block automated link checkers. If one does not open, search for its title.
-
-## Bonus: Error Handling and OOP
-
-Two extra topics to explore after the main lessons: [Exception handling](bonus/error-handling/)
-and [Object-oriented programming](bonus/oop/). See the [bonus page](bonus/README.md).
 
 ## Repository layout
 
@@ -579,7 +560,9 @@ python-ai-crash-course/
 ├── README.md                 you are here
 ├── INDEX.md                  every file and link in one table
 ├── requirements.txt          jupyterlab
-├── part-1-python/
+├── roadmap/
+│   └── README.md             the beginner roadmap for learning Python and AI
+├── python/
 │   ├── README.md             lesson list with summaries
 │   └── NN-topic/             one folder per lesson
 │       ├── README.md         timestamps, files, tasks
@@ -588,11 +571,10 @@ python-ai-crash-course/
 │       └── code.ipynb
 ├── assignments/              six checkpoint assignments
 │   └── solutions/
-├── part-2-ai/
+├── ai-concepts/
 │   ├── README.md             21 terms, activities, resources, quiz
 │   ├── ai-terms-explained.pdf
 │   └── images/
-├── bonus/                    error handling and OOP
 └── scripts/                  maintainer tooling (learners can ignore)
 ```
 
@@ -607,7 +589,7 @@ The repo holds {n_files} notebooks and scripts and {n_pdf} PDFs.
 
 **Which file do I open first in a lesson?** Watch the video, then `theory.ipynb`, then `code.ipynb`.
 
-**Do I need an AI account for Part 2?** No. The activities work with any free chatbot, and the tools are free websites.
+**Do I need an AI account for the AI concepts?** No. The activities work with any free chatbot, and the tools are free websites.
 
 **I got stuck or found a mistake.** Open an [issue]({REPO_URL}/issues) with the lesson number and what happened.
 
@@ -667,6 +649,157 @@ carry the change into the generator.
 """
 
 
+# ------------------------------------------------------------------ roadmap
+def roadmap_readme():
+    def lf(num):
+        l = next(x for x in cur.PART1 if x.num == num)
+        return f"../python/{l.folder}/"
+
+    def span(a, b):
+        return f"[lessons {a} to {b}]({lf(a)})"
+
+    ac = "../ai-concepts/README.md"
+    return f"""# AI Roadmap for Beginners
+
+**Follow this roadmap to get started in AI if you are new.** You do not need a degree, a powerful computer or a maths
+background. You need a sensible order to learn things in, and this page gives you one, with every step linked to
+material in this repository.
+
+> **In one line:** learn Python basics, learn the language of AI, learn to prompt and give context well, build small
+> things with code, then grow into RAG, tools and agents.
+
+[Back to the course home](../README.md)
+
+## Why start with Python
+
+- **It reads like plain English.** You spend your time on ideas, not on punctuation, so you get working programs quickly.
+- **AI tooling is Python-first.** Most tutorials, libraries and example code for working with AI models are written in
+  Python, so the skill you build here keeps paying off.
+- **It is useful beyond AI.** The same basics carry over to automation, data work and web projects.
+- **You stay in control.** Even if you mostly use AI tools, Python lets you automate boring tasks and read and check the
+  code an assistant writes for you, instead of treating it as magic.
+- **Errors stop being scary.** Once you can read a traceback, debugging, with or without an AI helper, becomes routine.
+
+## Why learn the vocabulary of AI
+
+- **You will hear the words everywhere.** Tokens, context window, RAG, MCP and agents appear on every product page.
+  Knowing them lets you judge what a claim really means.
+- **You get better results.** Temperature, prompting and context change the answers you receive.
+- **You avoid costly surprises.** Understanding tokens and hallucination helps with both cost and trust.
+- **You choose the right tool.** Should you prompt better, retrieve documents (RAG), fine-tune, or build an agent?
+  The vocabulary is how you decide.
+
+## The roadmap at a glance
+
+| Stage | Goal | Start here | Suggested pace* |
+|---|---|---|---|
+| 1 | Python basics | {span('01', '16')} | 1 to 2 weeks |
+| 2 | Decisions and loops | {span('17', '25')} | about 1 week |
+| 3 | Data structures | {span('26', '36')} | 1 to 2 weeks |
+| 4 | Functions | {span('37', '44')} | about 1 week |
+| 5 | Speak the language of AI | [AI concepts]({ac}) | 3 to 5 days |
+| 6 | Use AI well | [Prompting and context]({ac}#prompting) | ongoing |
+| 7 | Build with AI | Mini projects below | 2 to 4 weeks |
+| 8 | Keep growing | Pick one project and ship it | ongoing |
+
+\\*A suggestion for about an hour of study a day. Go faster or slower; finishing matters more than speed.
+
+---
+
+## Stage 1: Python basics
+
+**Goal:** install Python, run code, and work with numbers, text and operators.
+
+- Do: {span('01', '16')}. Start with [installing Python]({lf('02')}).
+- Test yourself: [Checkpoint 1](../assignments/A1-setup-and-basics.ipynb), [Checkpoint 2](../assignments/A2-types-strings-casting.ipynb)
+  and [Checkpoint 3](../assignments/A3-operators-formatting.ipynb).
+- **Mini projects:** a tip calculator, a unit converter, a "format my name" helper.
+- **You are ready to move on when** you can store values in variables, slice a string, and print tidy output with f-strings.
+
+## Stage 2: Decisions and loops
+
+**Goal:** make your programs choose and repeat.
+
+- Do: {span('17', '25')}.
+- Test yourself: [Checkpoint 4](../assignments/A4-conditionals-loops.ipynb).
+- **Mini projects:** a number-guessing game, a multiplication-table printer, a password-strength checker.
+- **You are ready to move on when** you can read a loop and predict what it prints before running it.
+
+## Stage 3: Data structures
+
+**Goal:** organise information with lists, tuples, sets and dictionaries.
+
+- Do: {span('26', '36')}.
+- Test yourself: [Checkpoint 5](../assignments/A5-data-structures.ipynb).
+- **Mini projects:** a contact book with a dictionary, a to-do list, a word-frequency counter.
+- **You are ready to move on when** you can pick the right structure for a problem and explain why.
+
+## Stage 4: Functions
+
+**Goal:** package code so you can reuse it, and meet the functional tools used everywhere in Python.
+
+- Do: {span('37', '44')}.
+- Test yourself: [Checkpoint 6](../assignments/A6-functions.ipynb).
+- When you want to write larger programs, continue with [exception handling]({lf('45')}) and [object-oriented programming]({lf('46')}).
+- **Mini projects:** turn your earlier projects into functions, build a small text-cleaning toolkit with `map` and `filter`.
+- **You are ready to move on when** you can write a function with default and keyword arguments and explain what it returns.
+
+## Stage 5: Speak the language of AI
+
+**Goal:** understand the 21 core terms well enough to explain them to a friend.
+
+- Do: the [AI concepts guide]({ac}), one stage at a time, with the card images and the activity under each term.
+- Try the tools: the [tokenizer, temperature visualizer and Transformer Explainer]({ac}#resources-explained).
+- Test yourself: the [quiz]({ac}#quiz).
+- **Mini project:** write a one-page glossary in your own words, then explain RAG to someone who has never heard of it.
+
+## Stage 6: Use AI well
+
+**Goal:** get reliably good answers instead of lucky ones.
+
+- Practise **prompting**: compare a zero-shot prompt with a few-shot one on the same task.
+- Practise **context**: give the model the background it needs, not just a question.
+- Always **verify**: treat a confident answer as a draft, especially for facts, numbers and citations.
+- **Mini project:** turn a task you do every week into a reusable prompt template.
+
+## Stage 7: Build with AI
+
+**Goal:** move from using AI to building with it, using the Python you now know.
+
+1. **Call a model from code.** Use a provider's official documentation to send text to a model and print the reply.
+2. **Give it your own documents (RAG).** Build a small "chat with my notes" script that retrieves the right passage first.
+3. **Give it tools.** Let a model call a function you wrote, for example a calculator or a file reader. This is the idea behind MCP.
+4. **Make it loop.** Combine tools and a goal into a tiny agent that perceives, reasons, acts and checks.
+
+Keep each project small and finish it before starting the next.
+
+## Stage 8: Keep growing
+
+- Pick **one** project you care about and ship it, however small.
+- Share it, write down what you learned, and ask for feedback.
+- Return to the [lesson pages](../python/README.md) whenever a concept feels shaky.
+
+## Habits that make this work
+
+1. **Type the code yourself.** Pasting teaches far less than typing.
+2. **Do the "Try it yourself" tasks** in every lesson before moving on.
+3. **Break things on purpose** and read the error message slowly.
+4. **Use an AI chatbot as a tutor, not an answer machine:** ask it to explain your error or quiz you before asking for a full solution.
+5. **Study a little every day** rather than in rare marathons.
+6. **Keep a notes file** of new terms and the one-line meaning you understood.
+
+## Common mistakes
+
+- Watching without coding along.
+- Jumping to agents and frameworks before the Python basics feel comfortable.
+- Trusting AI output without checking it.
+- Waiting until you feel "ready" to build something.
+- Skipping errors instead of reading them.
+
+[Back to the course home](../README.md) · [Start with lesson 01]({lf('01')})
+"""
+
+
 # ------------------------------------------------------------------ verification
 def verify_links(repo):
     broken, total = [], 0
@@ -714,13 +847,12 @@ def build(a):
         copy_lesson(l, src, repo, notes)
         page = lesson_page(l, lessons[i - 1] if i else None, lessons[i + 1] if i + 1 < len(lessons) else None)
         (repo / folder_of(l) / "README.md").write_text(page, encoding="utf-8")
-    for l in cur.BONUS_LESSONS:
-        copy_lesson(l, src, repo, notes)
-        (repo / folder_of(l) / "README.md").write_text(bonus_lesson_page(l), encoding="utf-8")
-    (repo / "bonus" / "README.md").write_text(bonus_readme(), encoding="utf-8")
-    (repo / "part-1-python" / "README.md").write_text(part1_readme(), encoding="utf-8")
+    (repo / "python" / "README.md").write_text(part1_readme(), encoding="utf-8")
 
-    ai_dir = repo / "part-2-ai"
+    (repo / "roadmap").mkdir(exist_ok=True)
+    (repo / "roadmap" / "README.md").write_text(roadmap_readme(), encoding="utf-8")
+
+    ai_dir = repo / "ai-concepts"
     ai_dir.mkdir(parents=True, exist_ok=True)
     shutil.copy2(a.ai_pdf, ai_dir / "ai-terms-explained.pdf")
     names = write_ai_images(extract_ai_images(a.ai_pdf), ai_dir / "images")

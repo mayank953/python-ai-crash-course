@@ -2,8 +2,6 @@
 
 Checking membership with `in`, and working with bits using `&`, `|`, `^`, `~`, `<<` and `>>`.
 
-> 📚 **Extra practice lesson** to go with this part of the course.
-
 **Files**
 
 | File | What it is |

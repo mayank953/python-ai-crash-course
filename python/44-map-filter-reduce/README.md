@@ -24,4 +24,4 @@ Transforming, filtering and combining sequences with `map()`, `filter()` and `re
 🎯 **Checkpoint:** that completes a section. Test yourself with [Checkpoint 6: Functions & Functional Programming](../../assignments/A6-functions.ipynb) (solutions: [here](../../assignments/solutions/A6-functions.ipynb)).
 
 ---
-[← 43 Lambda Functions](../43-lambda-functions/) · [Course home](../../README.md)
+[← 43 Lambda Functions](../43-lambda-functions/) · [Course home](../../README.md) · [45 Exception Handling →](../45-exception-handling/)

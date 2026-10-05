@@ -1,4 +1,4 @@
-# Part 2: AI Concepts Explained
+# AI Concepts Explained
 
 Video: [`10:47:48`](https://www.youtube.com/watch?v=J9BI0jGOds8&t=38868s) to `13:01:38`. **21 terms in 5 stages**, from the chat window you already use to what comes next.
 

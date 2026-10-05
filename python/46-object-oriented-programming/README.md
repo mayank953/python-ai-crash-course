@@ -1,8 +1,8 @@
-# Bonus: Object-Oriented Programming
+# 46. Object-Oriented Programming
 
 Classes and objects, encapsulation, abstraction, inheritance, polymorphism and operator overloading, with practice programs.
 
-> A bonus topic for when you are ready to go further. Notes, code and practice are all here.
+**Files**
 
 | File | What it is |
 |---|---|
@@ -20,4 +20,11 @@ Classes and objects, encapsulation, abstraction, inheritance, polymorphism and o
 | 🐍 [`exercises/question-set-2-bank-account.py`](exercises/question-set-2-bank-account.py) | Practice script |
 | 🐍 [`exercises/snake-and-ladder.py`](exercises/snake-and-ladder.py) | Practice script |
 
-[Back to bonus](../README.md) · [Course home](../../README.md)
+**Try it yourself**
+
+1. Write a `Student` class with `__init__` and a method that prints a summary.
+2. Make one attribute private and give it a getter and a setter.
+3. Create `Animal` and `Dog`, override `speak()` in `Dog`, and call it on both.
+
+---
+[← 45 Exception Handling](../45-exception-handling/) · [Course home](../../README.md)

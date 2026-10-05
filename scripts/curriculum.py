@@ -30,7 +30,7 @@ class Lesson:
 
     @property
     def folder(self):
-        # Bonus lessons ("B1") live at bonus/<slug>, numbered lessons at part-1-python/NN-<slug>
+        # Lessons live at python/NN-<slug>
         return f"{self.num}-{self.slug}" if self.num[0].isdigit() else self.slug
 
 
@@ -40,13 +40,14 @@ def L(num, slug, title, section, chapters, files, note=""):
 
 WB = "whiteboard-notes.pdf"
 
-# ---------------------------------------------------------------- Part 1
+# ---------------------------------------------------------------- Python lessons 01-44
 SEC_SETUP = "Setup & Basics"
 SEC_TYPES = "Data Types, Strings & Type Casting"
 SEC_OPS = "Operators & String Formatting"
 SEC_FLOW = "Conditionals & Loops"
 SEC_DS = "Data Structures"
 SEC_FUNC = "Functions & Functional Programming"
+SEC_MORE = "Error Handling & OOP"
 
 PART1 = [
     L("01", "introduction-to-python", "Introduction to Python", SEC_SETUP,
@@ -121,7 +122,7 @@ PART1 = [
       [("Class 14 - Membership & Binary/Membership + Binary.pdf", WB, PDF),
        ("Class 14 - Membership & Binary/Explanation - Membership + Binary.ipynb", "theory.ipynb", THEORY),
        ("Class 14 - Membership & Binary/Membership and Binary.ipynb", "code.ipynb", CODE)],
-      note="Extra practice lesson."),
+      ),
     L("15", "precedence-associativity", "Operator Precedence & Associativity", SEC_OPS,
       [("3:06:08", "Operator Precedence & Associativity")],
       [("Class 15 - Associativity and Precedence in Operator/Associativity + Precedance.pdf", WB, PDF),
@@ -257,21 +258,21 @@ PART1 = [
        ("Hello Python - Functions/8. Map Filter and Reduce/Map Filter Reduce.ipynb", "code.ipynb", CODE)]),
 ]
 
-# ---------------------------------------------------------------- Bonus
-# Bonus topics: extra material to explore after the main lessons.
-BONUS_ERRORS = L(
-    "B1", "error-handling", "Exception Handling", "Bonus",
+# ---------------------------------------------------------------- Lessons 45-46
+# Lessons 45 and 46 (no video chapter)
+ERRORS_LESSON = L(
+    "45", "exception-handling", "Exception Handling", SEC_MORE,
     [],
     [("Error Handling/Exception Handling Notes.pdf", WB, PDF),
      ("Error Handling/Exception Handling Explained.ipynb", "theory.ipynb", THEORY),
      ("Error Handling/Error handling - Python.ipynb", "code.ipynb", CODE),
      ("Error Handling/Types of Exception.ipynb", "code-types-of-exception.ipynb", CODE),
      ("Error Handling/exception_handling_exercises_5.ipynb", "exercises.ipynb", EXERCISE)],
-    note="Bonus topic.")
+)
 
 OOP = "OOPS Session/"   # lives next to the Hello Python folder in the source repo
-BONUS_OOP = L(
-    "B2", "oop", "Object-Oriented Programming", "Bonus",
+OOP_LESSON = L(
+    "46", "object-oriented-programming", "Object-Oriented Programming", SEC_MORE,
     [],
     [(OOP + "OOPS in Python Handwritten.pdf", WB, PDF),
      (OOP + "OOPS in Python.ipynb", "01-classes-and-objects.ipynb", CODE),
@@ -286,9 +287,9 @@ BONUS_OOP = L(
      (OOP + "Assignment/OOPS Question Set 1.py", "exercises/question-set-1-stack.py", SCRIPT),
      (OOP + "Assignment/OOPS Question 2.py", "exercises/question-set-2-bank-account.py", SCRIPT),
      (OOP + "Assignment/OOPS Snake and Ladder Game.py", "exercises/snake-and-ladder.py", SCRIPT)],
-    note="Bonus topic.")
+)
 
-BONUS_LESSONS = [BONUS_ERRORS, BONUS_OOP]
+PART1.extend([ERRORS_LESSON, OOP_LESSON])   # lessons 45 and 46
 
 # Source files deliberately NOT copied (scratch / artifacts), documented in docs/content-audit.md
 EXCLUDED = [
@@ -301,4 +302,4 @@ EXCLUDED = [
     (".claude/logs/", "Local Claude Code session log."),
 ]
 
-# Part 2 chapter table (timestamps) is defined in ai_terms.py
+# AI concepts chapter timestamps are defined in ai_terms.py
