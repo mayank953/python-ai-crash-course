@@ -1,6 +1,6 @@
 # Bonus material
 
-Two topics that are **not part of the video** but whose code belongs with the course. Come back to them after the main lessons.
+Two extra topics to explore after the main lessons, each with notes, code and practice programs.
 
 | Topic | Do first | What's inside |
 |---|---|---|

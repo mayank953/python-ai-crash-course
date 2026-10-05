@@ -121,7 +121,7 @@ PART1 = [
       [("Class 14 - Membership & Binary/Membership + Binary.pdf", WB, PDF),
        ("Class 14 - Membership & Binary/Explanation - Membership + Binary.ipynb", "theory.ipynb", THEORY),
        ("Class 14 - Membership & Binary/Membership and Binary.ipynb", "code.ipynb", CODE)],
-      note="Supplementary: this class has no chapter of its own in the video's chapter list."),
+      note="Extra practice lesson."),
     L("15", "precedence-associativity", "Operator Precedence & Associativity", SEC_OPS,
       [("3:06:08", "Operator Precedence & Associativity")],
       [("Class 15 - Associativity and Precedence in Operator/Associativity + Precedance.pdf", WB, PDF),
@@ -258,7 +258,7 @@ PART1 = [
 ]
 
 # ---------------------------------------------------------------- Bonus
-# Not covered in the video. Included so the code is not lost.
+# Bonus topics: extra material to explore after the main lessons.
 BONUS_ERRORS = L(
     "B1", "error-handling", "Exception Handling", "Bonus",
     [],
@@ -267,7 +267,7 @@ BONUS_ERRORS = L(
      ("Error Handling/Error handling - Python.ipynb", "code.ipynb", CODE),
      ("Error Handling/Types of Exception.ipynb", "code-types-of-exception.ipynb", CODE),
      ("Error Handling/exception_handling_exercises_5.ipynb", "exercises.ipynb", EXERCISE)],
-    note="Bonus: not covered in the video.")
+    note="Bonus topic.")
 
 OOP = "OOPS Session/"   # lives next to the Hello Python folder in the source repo
 BONUS_OOP = L(
@@ -286,7 +286,7 @@ BONUS_OOP = L(
      (OOP + "Assignment/OOPS Question Set 1.py", "exercises/question-set-1-stack.py", SCRIPT),
      (OOP + "Assignment/OOPS Question 2.py", "exercises/question-set-2-bank-account.py", SCRIPT),
      (OOP + "Assignment/OOPS Snake and Ladder Game.py", "exercises/snake-and-ladder.py", SCRIPT)],
-    note="Bonus: not covered in the video.")
+    note="Bonus topic.")
 
 BONUS_LESSONS = [BONUS_ERRORS, BONUS_OOP]
 

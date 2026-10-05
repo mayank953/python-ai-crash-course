@@ -2,7 +2,7 @@
 
 Classes and objects, encapsulation, abstraction, inheritance, polymorphism and operator overloading, with practice programs.
 
-> This topic is **not covered in the video**. The files are included so the code is available to anyone who wants to continue after the course.
+> A bonus topic for when you are ready to go further. Notes, code and practice are all here.
 
 | File | What it is |
 |---|---|

@@ -2,7 +2,7 @@
 
 44 lessons in video order. Each lesson folder holds the whiteboard PDF, a theory notebook, a code notebook and sometimes exercises, plus a README with the video timestamps and three small tasks.
 
-Legend: 📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · *extra* = no chapter of its own in the video
+Legend: 📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · *extra* = additional practice lesson
 
 ### Setup & Basics
 

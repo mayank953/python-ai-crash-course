@@ -2,7 +2,7 @@
 
 Checking membership with `in`, and working with bits using `&`, `|`, `^`, `~`, `<<` and `>>`.
 
-> 📺 Extra material: this class has no chapter of its own in the video.
+> 📚 **Extra practice lesson** to go with this part of the course.
 
 **Files**
 

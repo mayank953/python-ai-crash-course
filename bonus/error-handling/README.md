@@ -2,7 +2,7 @@
 
 Catching and handling exceptions with `try`, `except`, `else` and `finally`, plus a tour of the built-in exception types.
 
-> This topic is **not covered in the video**. The files are included so the code is available to anyone who wants to continue after the course.
+> A bonus topic for when you are ready to go further. Notes, code and practice are all here.
 
 | File | What it is |
 |---|---|

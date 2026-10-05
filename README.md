@@ -17,7 +17,7 @@ This repository holds every note, notebook and practice file for the 13-hour cou
 - [Course roadmap](#course-roadmap) · [Chapter overview](#chapter-overview)
 - [Part 1: Python lessons](#part-1-python-lessons) · [Checkpoint assignments](#checkpoint-assignments)
 - [Part 2: AI concepts](#part-2-ai-concepts) · [Resources explained](#resources-explained)
-- [Bonus](#bonus-not-in-the-video) · [Repository layout](#repository-layout) · [FAQ](#faq)
+- [Bonus](#bonus-error-handling-and-oop) · [Repository layout](#repository-layout) · [FAQ](#faq)
 
 ## What you will learn
 
@@ -190,7 +190,7 @@ All 96 chapters of the video, with the place in this repository that matches eac
 
 ## Part 1: Python lessons
 
-📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · *extra* = no chapter of its own in the video
+📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · *extra* = additional practice lesson
 
 Hover over an icon to see what it is. Each lesson title opens its own page with timestamps and tasks.
 
@@ -314,9 +314,9 @@ The video uses a handful of tools and articles. Here is what each one is and whe
 
 > Some of these sites block automated link checkers. If one does not open, search for its title.
 
-## Bonus (not in the video)
+## Bonus: Error Handling and OOP
 
-Two extra topics whose code is included for anyone who wants to continue: [Exception handling](bonus/error-handling/)
+Two extra topics to explore after the main lessons: [Exception handling](bonus/error-handling/)
 and [Object-oriented programming](bonus/oop/). See the [bonus page](bonus/README.md).
 
 ## Repository layout
@@ -339,7 +339,7 @@ python-ai-crash-course/
 │   ├── README.md             21 terms, activities, resources, quiz
 │   ├── ai-terms-explained.pdf
 │   └── images/
-├── bonus/                    error handling and OOP (not in the video)
+├── bonus/                    error handling and OOP
 └── scripts/                  maintainer tooling (learners can ignore)
 ```
 

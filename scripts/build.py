@@ -108,7 +108,7 @@ def header_cell(lesson):
         links = " · ".join(f"{vid(t)} {name}" for t, name in lesson.chapters)
         first = f"> 📺 **Watch:** {links}"
     else:
-        first = "> 📺 Extra material: not covered in the video."
+        first = "> 📚 **Extra practice** to go with this course."
     heading = f"{lesson.num}. {lesson.title}" if lesson.num[0].isdigit() else lesson.title
     second = f"> 📂 **{heading}** · [lesson page](README.md) · [course home](../../README.md)"
     return v4.new_markdown_cell(first + "\n" + second)
@@ -170,7 +170,7 @@ def lesson_tables(base, blurb=False):
 
 
 ICON_LEGEND = ("📄 whiteboard notes (PDF) · 📘 theory notebook · 💻 code notebook · ✏️ exercises · "
-               "*extra* = no chapter of its own in the video")
+               "*extra* = additional practice lesson")
 
 PARTS_OVERVIEW = """| Part | Topic | Video range |
 |------|-------|-------------|
@@ -227,7 +227,7 @@ def lesson_page(lesson, prev_l, next_l):
     if lesson.chapters:
         L += ["**Watch**", ""] + [f"- {vid(t)} {name}" for t, name in lesson.chapters] + [""]
     else:
-        L += ["> 📺 Extra material: this class has no chapter of its own in the video.", ""]
+        L += ["> 📚 **Extra practice lesson** to go with this part of the course.", ""]
     if lesson.num in ("37", "38"):
         L += ["> Lessons 37 and 38 together span the chapters from `8:41:36` to `9:10:11`.", ""]
     L += ["**Files**", "", "| File | What it is |", "|---|---|"]
@@ -249,8 +249,7 @@ def lesson_page(lesson, prev_l, next_l):
 
 def bonus_lesson_page(lesson):
     L = [f"# Bonus: {lesson.title}", "", practice.BONUS[lesson.folder], "",
-         "> This topic is **not covered in the video**. The files are included so the code is available "
-         "to anyone who wants to continue after the course.", "", "| File | What it is |", "|---|---|"]
+         "> A bonus topic for when you are ready to go further. Notes, code and practice are all here.", "", "| File | What it is |", "|---|---|"]
     L += [f"| {ICON[k]} [`{n}`]({n}) | {LABEL[k]} |" for _r, n, k in lesson.files]
     return "\n".join(L + ["", "[Back to bonus](../README.md) · [Course home](../../README.md)", ""])
 
@@ -258,8 +257,7 @@ def bonus_lesson_page(lesson):
 def bonus_readme():
     prereq = {"error-handling": "Lessons 17 to 25 (conditionals and loops)", "oop": "Lessons 37 to 44 (functions)"}
     L = ["# Bonus material", "",
-         "Two topics that are **not part of the video** but whose code belongs with the course. "
-         "Come back to them after the main lessons.", "",
+         "Two extra topics to explore after the main lessons, each with notes, code and practice programs.", "",
          "| Topic | Do first | What's inside |", "|---|---|---|"]
     L += [f"| [{l.title}]({l.folder}/) | {prereq[l.folder]} | {practice.BONUS[l.folder]} |" for l in cur.BONUS_LESSONS]
     return "\n".join(L + ["", "[Course home](../README.md)", ""])
@@ -471,7 +469,7 @@ This repository holds every note, notebook and practice file for the 13-hour cou
 - [Course roadmap](#course-roadmap) · [Chapter overview](#chapter-overview)
 - [Part 1: Python lessons](#part-1-python-lessons) · [Checkpoint assignments](#checkpoint-assignments)
 - [Part 2: AI concepts](#part-2-ai-concepts) · [Resources explained](#resources-explained)
-- [Bonus](#bonus-not-in-the-video) · [Repository layout](#repository-layout) · [FAQ](#faq)
+- [Bonus](#bonus-error-handling-and-oop) · [Repository layout](#repository-layout) · [FAQ](#faq)
 
 ## What you will learn
 
@@ -569,9 +567,9 @@ The video uses a handful of tools and articles. Here is what each one is and whe
 
 > Some of these sites block automated link checkers. If one does not open, search for its title.
 
-## Bonus (not in the video)
+## Bonus: Error Handling and OOP
 
-Two extra topics whose code is included for anyone who wants to continue: [Exception handling](bonus/error-handling/)
+Two extra topics to explore after the main lessons: [Exception handling](bonus/error-handling/)
 and [Object-oriented programming](bonus/oop/). See the [bonus page](bonus/README.md).
 
 ## Repository layout
@@ -594,7 +592,7 @@ python-ai-crash-course/
 │   ├── README.md             21 terms, activities, resources, quiz
 │   ├── ai-terms-explained.pdf
 │   └── images/
-├── bonus/                    error handling and OOP (not in the video)
+├── bonus/                    error handling and OOP
 └── scripts/                  maintainer tooling (learners can ignore)
 ```
 
